@@ -18,6 +18,19 @@ public class MasterOrder{
   {
     /* Part A answer goes here */
     
+    //Running Total
+    //For each Loop
+    int sum = 0;
+
+    //CookieOrder is the primitive we are using
+    //.getNumBoxes() is called because it uses an int, which we want,
+    //and it accumulates the number of boxes ordered.
+    for(CookieOrder co: orders)
+      sum += co.getNumBoxes();
+
+    return sum;
+
+    
   }
 
   /** Removes all cookie orders from the master order that have the same variety of
@@ -28,7 +41,19 @@ public class MasterOrder{
   public int removeVariety(String cookieVar)
   {
     /* Part B answer goes here */
-    
+
+    //We are removing, so position matters. No For Each Loop!
+    int boxes = 0;
+
+    //Removing, going backwards from the last position to the front.
+    for(int i = orders.size()-1; i >= 0; i--)
+        //Within the ArrayList (orders), at position i (.get(i))
+        //If that position is the same as the parameter cookieVar (.euals(cookieVar))
+        //Then remove the object within the ArrayList called, CookieOrder (.remove(CookieOrder)).
+        if(orders.get(i).equals(cookieVar).remove(CookieOrder))
+          boxes++;
+      
+    return boxes;
   }
 
   //There may be instance variables, constructors, and methods that are not shown.
